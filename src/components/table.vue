@@ -2,9 +2,9 @@
   div#table
     v-container.grey.lighten-5.mb-6
       v-row.border_title
-        v-col(:align-self="end") title1
-        v-col(:align-self="center") title2
-        v-col(:align-self="center") title3
+        v-col title1
+        v-col title2
+        v-col title3
       v-row.border
         v-col value1
         v-col value2

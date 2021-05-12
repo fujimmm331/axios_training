@@ -6,18 +6,36 @@
       p 郵便番号を入力することで、住所を検索できます。
       v-form
         v-text-field(
+          v-model="form.text",
+          autofocus=true,
           prepend-icon="mdi-magnify",
           label="例）2400006",
-          width="80%")
+        )
       v-card-actions
-        v-btn 検索
+        v-btn(
+          @click="onSearch"
+        ) 検索
 </template>
 <script lang="ts">
-import { defineComponent } from "@vue/composition-api";
+import { defineComponent, reactive } from '@vue/composition-api';
+
+export interface State {
+  text: string;
+}
+
 export default defineComponent({
-  // setup() {
-  // },
+  setup() {
+    const form = reactive<State>({
+      text: '',
+    });
+    const onSearch = () => {
+      console.log(form.text);
+    };
+    return {
+      form,
+      onSearch,
+    };
+  },
 });
 </script>
-<style scoped>
-</style>
+<style scoped></style>
